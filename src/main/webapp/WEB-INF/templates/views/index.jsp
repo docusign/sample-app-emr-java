@@ -24,7 +24,7 @@
 
       <div class="hero-banner">
         <p class="hero">EMR Sample App</p>
-        <p class="tagline">This is a sample application showcasing an integration between the Docusign eSignature REST API and an Electronic Medical Records system. This application is open source and all of the code is located in our GitHub repository.</p>
+        <p class="tagline">This is a sample application showcasing an integration between the Docusign eSignature REST API and an Electronic Medical Records system. This application is open source, uses JWT authentication, and all of the code is located in our GitHub repository.</p>
       </div>
 
     </div>
