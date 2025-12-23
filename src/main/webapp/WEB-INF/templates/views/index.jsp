@@ -31,7 +31,7 @@
 
     <div class="buttonGroup">
       <button type="button" class="tryIt" onclick="window.location.href='/patientdocs'"> Try the App </button>
-      <button type="button" class="tryItSrc"  onclick=" window.open('http://github.com/docusign/sample-app-emr-java','_blank')"> More Info</button>
+      <button type="button" class="tryItSrc"  onclick=" window.open('http://github.com/docusign/sample-app-emr-java','_blank')"> GitHub Source</button>
     </div>
 
 
