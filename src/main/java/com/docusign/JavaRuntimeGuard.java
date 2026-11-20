@@ -67,10 +67,13 @@ public final class JavaRuntimeGuard {
             } else if (OSDetector.isMac()) {
                 Process p = new ProcessBuilder("sysctl", "-n", "machdep.cpu.features", "machdep.cpu.leaf7_features").start();
                 flags = new String(p.getInputStream().readAllBytes());
+                if (p.waitFor() != 0 || flags.isBlank()) {
+                    return true;
+                }
             } else {
                 return true;
             }
-            List<String> present = List.of(flags.toLowerCase().split("\\s+"));
+            List<String> present = List.of(flags.toLowerCase(java.util.Locale.ROOT).replace("avx512_vbmi", "avx512vbmi").split("\\s+"));
             return present.containsAll(REQUIRED_CPU_FLAGS);
         } catch (Exception e) {
             return true;
