@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration;
 public class App {
 
     public static void main(String[] args) throws IOException {
+        JavaRuntimeGuard.enforce();
         SpringApplication.run(App.class, args);
         openHomePage();
     }
