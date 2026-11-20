@@ -64,6 +64,9 @@ public final class JavaRuntimeGuard {
             String flags;
             if (OSDetector.isLinux()) {
                 flags = Files.readString(Paths.get("/proc/cpuinfo"));
+                if (flags.lines().noneMatch(line -> line.matches("^\\s*flags\\s*:\\s*\\S.*$"))) {
+                    return true;
+                }
             } else if (OSDetector.isMac()) {
                 Process p = new ProcessBuilder("sysctl", "-n", "machdep.cpu.features", "machdep.cpu.leaf7_features").start();
                 flags = new String(p.getInputStream().readAllBytes());
